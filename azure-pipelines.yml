@@ -33,7 +33,7 @@ stages:
               command: 'validate'
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Pipeline.Workspace)/infra'
+              targetPath: '$(Build.SourcesDirectory)'
               artifact: 'Drop'
               publishLocation: 'pipeline'
   - stage: TerraformDeploy
@@ -50,10 +50,12 @@ stages:
              inputs:
                provider: 'azurerm'
                command: 'plan'
+               workingDirectory: '$(Pipeline.Workspace)/infra'
                environmentServiceNameAzureRM: 'Azureconnection'
            - task: TerraformTask@5
              inputs:
                provider: 'azurerm'
                command: 'apply'
+               workingDirectory: '$(Pipeline.Workspace)/infra'
                environmentServiceNameAzureRM: 'Azureconnection'
  
