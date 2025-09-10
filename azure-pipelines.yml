@@ -33,7 +33,7 @@ stages:
               command: 'validate'
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Build.SourcesDirectory)'
+              targetPath: '$(Build.SourcesDirectory)/infra'
               artifact: 'Drop'
               publishLocation: 'pipeline'
   - stage: TerraformDeploy
