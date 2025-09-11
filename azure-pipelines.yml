@@ -37,7 +37,7 @@ stages:
               Contents: |
                 *.tf
                 *.tfvars
-                 .terraform.lock.hcl
+                .terraform.lock.hcl
               TargetFolder: '$(Build.SourcesDirectory)/infra'
           
           - task: PublishPipelineArtifact@1
