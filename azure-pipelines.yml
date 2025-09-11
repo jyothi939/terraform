@@ -62,11 +62,8 @@ stages:
              inputs:
                provider: 'azurerm'
                command: 'init'
-               backendServiceArm: 'AzureConnection'
-               backendAzureRmResourceGroupName: 'Rg1'
-               backendAzureRmStorageAccountName: 'novalisbackend'
-               backendAzureRmContainerName: 'novaliscontainer'
-               backendAzureRmKey: 'terraform.tfstate'
+               workingDirectory: '$(Pipeline.Workspace)/infra'
+               environmentServiceNameAzureRM: 'Azureconnection'
            - task: TerraformTask@5
              inputs:
                provider: 'azurerm'
